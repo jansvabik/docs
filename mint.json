@@ -1,24 +1,24 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Docs",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/logo.png",
+    "light": "/logo/logo.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://comfyform.com/favicon/apple-touch-icon.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#273e9c",
+    "light": "#a7bEeC",
+    "dark": "#273e9c",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#273e9c",
+      "to": "#677edc"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@comfyform.com"
     }
   ],
   "topbarCtaButton": {
@@ -38,14 +38,14 @@
       "url": "https://mintlify.com/docs"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Discord Community",
+      "icon": "discord",
+      "url": "https://discord.gg/Fm7ac3am8S"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://comfyform.com/blog/"
     }
   ],
   "navigation": [
