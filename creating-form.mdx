@@ -1,0 +1,54 @@
+---
+title: 'Creating Form'
+'og:description': "Learn to create custom web forms effortlessly with Comfyform and manage submissions seamlessly"
+---
+
+Creating a new form in Comfyform is a straightforward process that allows you to begin managing form submissions quickly and effectively. By creating a form in your dashboard, you'll obtain a unique endpoint URL to which you can send form submissions from your website. Here's how to get started:
+
+## Step 1: Access Your Dashboard
+
+First, log in to your [Comfyform dashboard](https://app.comfyform.com/sign/in) using your credentials. This will be your hub for managing all Comfyform activities.
+
+## Step 2: Create the Form
+
+In the dashboard, locate and click on the “Create new form” button – you'll typically find this in the sidebar. A modal will appear where you can name your form.
+
+<Tip>
+**Effective form naming tip**
+
+Choose a title that specifies the form's purpose, like "Contact Form" or "Event Registration." For client forms, include their name for clarity, such as "AcmeCorp - Feedback Form."
+</Tip>
+
+![Creating new form in Comfyform app](/static/form-creating-modal.png)
+
+The form is automatically created with Honeypot security enabled. Honeypot is a simple spam protection measurement. Don't forget to add the honeypot field to your HTML code so the security really works. Learn more about [honeypot security](/spam-protection/honeypot/) or [other spam protection options](/spam-protection/).
+
+## Step 3: Acquire Your Endpoint URL and Code Examples
+
+Upon creating your form, Comfyform provides a versatile suite of code snippets for easy integration. Choose from four ready-to-use code snippets tailored to different needs>
+
+- Basic HTML form submission
+- HTML form submission with file upload capability
+- JavaScript fetch request
+- JavaScript fetch request with file upload support
+
+These examples are equipped with the endpoint URL configured to handle submissions from your site. You have the flexibility to either directly use the provided code snippets or extract the endpoint URL to be used with your custom form frontend setup.
+
+<Tip>
+**Comfyform Endpoint URL**
+
+Your endpoint URL should like like this: `https://api.comfyform.com/s/YOUR_FORM_ID_HERE`. You can extract it from the provided code snippets or you can always find it on the form detail page, which you can navigate to by clicking the “Open the form page” button after viewing the code examples after creating the form.
+
+![Form installation guide stripe in Comfyform app](/static/form-installation-stripe.png)
+</Tip>
+
+## Step 4: Configure Your Form (optional)
+
+Even though Comfyform is a backend service, we provide several configurations to improve your form's functionality. Some of them are available only in the dashboard, you can configure others both in dashboard and in your code (which will has a priority over the dashboard config).
+
+- **Success and Error Redirects**: Specify URLs to redirect users to a custom thank-you page or error page after submission. If you don't specify any, we'll show the user an [ok page](https://app.comfyform.com/submission/ok) or [error page](https://app.comfyform.com/submission/error?type=SECURITY_CAPTCHA&text=Please,%20prove%20that%20you%27re%20a%20human%20being.%20We%20can%27t%20process%20your%20form%20without%20that.&formId=630e80959e02340009587604) with a link back to your website.
+- **Email or SMS Notifications**: Set up automatic [email](/notifications/email/) or [SMS](/notifications/sms/) alerts to receive notifications as soon as a new form submission is received.
+- **Webhooks (coming soon)**: Implement webhooks to send form submission data to your services or backend for additional processing, monitoring, or analytics.
+- **Integrations**: Integrate your form with third-party services like [Google Sheets](/integrations/google-sheets/), [HubSpot](/integrations/hubspot/), and [many more](/integrations/) so you can seamlessly store, receive, or process data there.
+
+Remember, our support team is eager to help if you need any assistance or have questions about setting up your forms. Reach out to us at [support@comfyform.com](mailto:support@comfyform.com), and we'll make sure your experience with Comfyform is seamless and productive.

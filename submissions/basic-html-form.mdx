@@ -1,0 +1,83 @@
+---
+title: 'Basic HTML Form'
+'og:description': "Set up a secure HTML form on your site with Comfyform. Simple guide, effective spam prevention"
+---
+
+Integrate a basic HTML form with [Comfyform](https://comfyform.com/) effortlessly. This guide details the process of setting up a form on your website, guaranteeing secure and efficient handling of submissions.
+
+<Tip>
+**Keep it seamless, use the provided code upon form creation**
+
+Upon creating your new form in Comfyform, you'll receive a code snippet for this specific implementation approach. Grab the ready-to-go code, customize as desired, and be assured it includes the correct form ID and honeypot field name for immediate use.
+
+[Create new form](https://app.comfyform.com/forms/)
+</Tip>
+
+## Step-by-Step Guide to Implementing Your Form from Scratch
+
+### Step 1: Start With Our Prepared Form Template
+
+Comfyform provides a simple HTML form template you can use as a starting point. Later, we'll include the honeypot field to help filter out bots efficiently. 
+
+```html
+<form action="https://api.comfyform.com/s/YOUR_FORM_ID" method="POST">
+    <input type="text" name="Full name" placeholder="John Doe">
+    <input type="email" name="Email" placeholder="john@example.com">
+    <textarea name="Message" placeholder="Hello, I'd like to..."></textarea>
+    <button type="submit">Submit</button>
+</form>
+```
+
+Copy and paste the entire form code provided above into the HTML file where you want your form to appear. Replace `YOUR_FORM_ID` with the ID you receive when you create your form in the Comfyform dashboard.
+
+### Step 2: Secure Your Form with Honeypot Field
+
+Insert the following security field above the submit button in your form to prevent spam:
+
+```html
+<!-- Start of a security code to prevent bot submissions -->
+<div style="position: absolute; left: -9999px;">
+    <label for="emailAgainHpInput">If you're huuuman, ignore this field</label>
+    <input type="email" name="YOUR_HONEYPOT_FIELD" id="emailAgainHpInput" placeholder="your@email.com" tabindex="-1" autocomplete="nopls" data-1p-ignore data-lpignore="true">
+</div>
+<!-- End of security code -->
+```
+
+Adjust `YOUR_HONEYPOT_FIELD` according to your form security settings in Comfyform.
+
+### Step 3: Customize as Needed
+
+Tailor the form to your preferences—modify fields, update placeholders, or implement custom styles. For HTML structure and styling tips, refer to our [code structure and styling guide for HTML forms](https://comfyform.com/blog/how-to-structure-and-style-form-html-code-correctly-ux/).
+
+### Step 4: Deploy and Test
+
+Once you have your form set up, deploy your website, and perform a test submission to ensure everything is functioning as intended.
+
+## Final Code
+
+Here's what your final form code should look like. Remember to replace `YOUR_FORM_ID` and `YOUR_HONEYPOT_FIELD` with the appropriate values.
+
+```html
+<form action="https://api.comfyform.com/s/YOUR_FORM_ID" method="POST">
+    <input type="text" name="Full name" placeholder="John Doe">
+    <input type="email" name="Email" placeholder="john@example.com">
+    <textarea name="Message" placeholder="Hello, I'd like to..."></textarea>
+    <!-- Start of a security code to prevent bot submissions -->
+    <div style="position: absolute; left: -9999px;">
+        <label for="emailAgainHpInput">If you're huuuman, ignore this field</label>
+        <input type="email" name="YOUR_HONEYPOT_FIELD" id="emailAgainHpInput" placeholder="your@email.com" tabindex="-1" autocomplete="nopls" data-1p-ignore data-lpignore="true">
+    </div>
+    <!-- End of security code -->
+    <button type="submit">Submit</button>
+</form>
+```
+
+## Security Measures
+
+The security field (honeypot) within the code is designed to be invisible to human users but detectable by bots. It's a simple yet effective spam protection mechanism that you must include in your form to maintain functionality.
+
+## Need Assistance?
+
+Our customer support is always available if you need a helping hand. For any queries or guidance on setting up your basic HTML form, contact us at [support@comfyform.com](mailto:support@comfyform.com).
+
+Get started with your basic HTML form integration today and enjoy a hassle-free, secure submission process with Comfyform.

@@ -1,0 +1,37 @@
+---
+title: 'Backend Integration'
+'og:description': 'Link your backend systems to Comfyform for streamlined data processing and service automation'
+---
+
+Elevate your backend systems' functionality with [Comfyform](https://comfyform.com/), your reliable data middleman. Harness the power of automation and real-time data manipulation to engage with internal processes effortlessly. Whether adding records to Google Sheets or triggering notifications on Slack, Comfyform fluidly connects the dots.
+
+## Connect Your Backend Systems
+
+Ensure seamless data flow from your backend directly to Comfyform. With simple JSON POST requests, Comfyform acts as an intermediary that captures data from your systems and channels it into actionable insights and automated tasks.
+
+### How to Post Data with JSON:
+
+1. **Set Content Type**: When crafting your POST request, set the `Content-Type` header to `application/json`. This indicates that the data being sent is in JSON format.
+
+2. **Include Accept Header**: To receive a response from Comfyform in JSON, include an `Accept` header with the value `application/json` in your request.
+
+3. **Send Data**: Post the data as a stringified JSON object. Comfyform processes this data and can trigger various automated actions, such as updating a spreadsheet or sending a Slack message, based on your pre-configured workflows.
+
+## Example of a JSON POST Request:
+
+```sh
+curl -X POST https://api.comfyform.com/s/YOUR_FORM_ID \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{"name":"Elon Musk","email":"musk@example.com"}'
+```
+
+Replace `YOUR_FORM_ID` with the actual ID of your form and the corresponding field names and their values with those you want to send to Comfyform.
+
+## Automate and Streamline
+
+By leveraging Comfyform's backend integration:
+
+- **Automate Data Entry**: Bid farewell to manual data entry. Automate the addition of new entries to your Google Sheets.
+- **Instant Notifications**: Set up instant alerts via your preferred communication channels, such as email, SMS, Slack, and more, ensuring your team stays in the loop.
+- **Custom Workflows**: Tailor your integrations to match your business processes. Create custom data manipulation and flows that align with your operations using Zapier or Make.

@@ -1,0 +1,38 @@
+---
+title: 'XML'
+'og:description': ""
+icon: 'code'
+---
+
+XML format provides a structured way to represent submission data, ensuring compatibility with systems that prefer or require XML for data exchange. It is structured hierarchically and can describe diverse data types in a detailed manner.
+
+<Warning>
+    Please note that this page, along with the exporting features described, is subject to future changes. As we continuously work to improve and expand our exporting capabilities, certain aspects of the functionality and format may evolve over time. Stay updated with us for the latest advancements.
+</Warning>
+
+## What's Included in the Export
+
+The XML export includes intricate details of each form submission, structuring each entry with opening and closing tags that encompass form identifiers, timestamps, input responses, file metadata, and even language preferences.
+
+## Detailed Example of an XML Export
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<submissions>
+    <submission id="65b1860ad8783aaa9f311fea">
+        <formId>64f48ce8e58f813428abe1ca</formId>
+        <time>2024-01-24T21:50:03.005Z</time>
+        <ip>1.2.3.4</ip>
+        <country>US</country>
+        <input key="Full name">Johnny Mermaid</input>
+        <input key="Email">johnny.mermaid@example.com</input>
+        <input key="Message">Hello, this is a test message.</input>
+        <fileInput key="CV">
+            <file link="https://api.comfyform.com/s/file/...resume.pdf">resume.pdf</file>
+        </fileInput>
+        <fileInput key="Cover letter">
+            <file link="https://api.comfyform.com/s/file/...cover-letter.pdf">cover-letter.pdf</file>
+        </fileInput>
+    </submission>
+</submissions>
+```

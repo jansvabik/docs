@@ -1,0 +1,106 @@
+---
+title: 'Webhooks'
+'og:description': "Automate your workflows with Comfyform's Webhooks: Real-time JSON data for immediate action on submissions. Secure, reliable, and easy to integrate."
+icon: 'circle-dot'
+---
+
+Integrate **real-time data processing** and take immediate action on submissions with Comfyform's Webhooks. Set up endpoints to **receive JSON-formatted POST requests** directly from Comfyform, **containing all necessary submission data**. Whether you're aiming to trigger workflows, update databases, or connect with other apps – webhooks provide a seamless conduit for automation.
+
+## Step by Step Guide
+
+Easily integrate Comfyform into your service ecosystem. To use webhooks for connecting your forms to your server or another service, follow these steps:
+
+1. Access your [Comfyform dashboard](https://app.comfyform.com/sign/in).
+2. Navigate to the [Forms](https://app.comfyform.com/forms) section and select the form you want to enable webhooks on.
+3. Click on the **Notifications** tab.
+4. Locate the **Webhooks** option and click "Activate". To adjust an existing webhook, click "Modify".
+5. Provide the URL of the server endpoint that will receive the webhook POST request. 
+6. Save the changes to initiate the webhook functionality.
+
+## JSON Data Structure
+
+Upon form submission, Comfyform will dispatch a POST request to the defined URL, delivering JSON data such as:
+
+```json
+{
+    "form": {
+        "id": "65b17e9e8638c9ee0a54cd8e",
+        "name": "Your Form Name"
+    },
+    "submission": {
+        "id": "66080ccd6b128a2a7bb28900",
+        "timestamp": "2024-01-14T18:32:16.270705Z",
+        "inputs": [{
+            "key": "fullname",
+            "values": ["Elon Musk"]
+        }, {
+            "key": "email",
+            "values": ["musk@example.com"]
+        }, {
+            "key": "message",
+            "values": ["Delighted with Comfyform's simplicity and efficiency."]
+        }],
+        "fileInputs": [{
+            "key": "cv",
+            "files": [{
+                "filename": "cv.pdf",
+                "size": 169302,
+                "mime": "application/pdf",
+                "url": "https://api.comfyform.com/s/file/65b17e9e8638c9ee0a54cd8e/66080ccd6b128a2a7bb28900/66087c079b507f80ce297d4a?key=dgqTKcRzC0LSOzXbcIyLelchXPBnoWD9"
+            }]
+        }, {
+            "key": "materials",
+            "files": [{
+                "filename": "presentation.pptx",
+                "size": 6294027,
+                "mime": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                "url": "https://api.comfyform.com/s/file/65b17e9e8638c9ee0a54cd8e/66080ccd6b128a2a7bb28900/66087c0b08187e358c388458?key=Z75Fm87hlKKuNtOWe7dbHKcSX8UPlvwc"
+            }, {
+                "filename": "whitepaper.pdf",
+                "size": 4399429,
+                "mime": "application/pdf",
+                "url": "https://api.comfyform.com/s/file/65b17e9e8638c9ee0a54cd8e/66080ccd6b128a2a7bb28900/66087c0ee8ee0354fe11df5f?key=yxu3vZdJLrx1a3Z6wT2ddEO8NLytUx2H"
+            }]
+        }]
+    }
+}
+```
+
+Expect to receive all significant details, like the form identity, timestamp, and user input. The structure accounts for multiple entries per field, as may occur with [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData/append).
+
+**Currently, Comfyform doesn't notify webhooks about spam-flagged submissions, but we plan to include this feature soon.**
+
+## Automated Retries
+
+If Comfyform's initial webhook POST request doesn't receive a status code within the 2XX success status codes range (e.g., 200 OK, 201 Created, 202 Accepted, etc.) from your endpoint, the system will retry automatically according to the following schedule:
+
+| Attempt | Time from the submission processing |
+|---------|------|
+| 1 | immediately |
+| 2 | 5 seconds |
+| 3 | 15 seconds |
+| 4 | 1 minute |
+| 5 | 5 minutes |
+| 6 | 15 minutes |
+| 7 | 30 minutes |
+| 8 | 1 hour |
+| 9 | 3 hours |
+| 10 | 8 hours |
+| 11 | 16 hours |
+| 12 | 1 day |
+| 13 | 2 days |
+| 14 | 4 days |
+| 15 | 7 days |
+
+We retry several times over a span of a week, giving your endpoint ample opportunity to respond successfully.
+
+## Best Practices
+
+- **Secure Your Endpoint:** Use HTTPS to ensure all data transferred via webhooks is encrypted.
+- **Verify Requests:** Add a unique verification token as a query parameter in your webhook URL and validate it server-side to authenticate incoming requests.
+- **Manage Load:** Prepare your server to efficiently handle potential surges in POST requests following multiple form submissions.
+- **Error Handling:** Develop robust error handling to manage webhook failures or irregularities gracefully.
+
+## Support
+
+Our team is ready to assist with setting up your webhooks or to address any questions you might have. Contact us at [support@comfyform.com](mailto:support@comfyform.com) or connect with other users and our staff on the [Comfyform Discord server](https://discord.gg/Fm7ac3am8S) for shared insights and assistance. Let's streamline your data processing and make every submission count.

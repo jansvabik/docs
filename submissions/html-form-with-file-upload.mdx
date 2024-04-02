@@ -1,0 +1,96 @@
+---
+title: 'HTML Form with File Upload'
+'og:description': "Set up HTML forms with file upload functionality effortlessly on Comfyform. Follow our step-by-step guide for secure and user-friendly file submissions."
+---
+
+Enhancing your forms to handle file uploads is simple with [Comfyform](https://comfyform.com/). Whether you need to collect documents, images, or any other file type, our platform enables secure and straightforward file submissions. Follow this guide to set up an HTML form equipped to send both standard data and files to Comfyform.
+
+<Tip>
+**Keep it seamless, use the provided code upon form creation**
+
+Upon creating your new form in Comfyform, you'll receive a code snippet for this specific implementation approach. Grab the ready-to-go code, customize as desired, and be assured it includes the correct form ID and honeypot field name for immediate use.
+
+[Create new form](https://app.comfyform.com/forms/)
+</Tip>
+
+## Step-by-Step Guide to Setting Your Form Up for File Uploads
+
+### Step 1: Start With Our Prepared Form Template
+
+To begin accepting files through your Comfyform, ensure your HTML form includes the `enctype="multipart/form-data"` attribute. This specifies how the form data should be encoded when submitted.
+
+Here's a sample form to get you started:
+
+```html
+<form action="https://api.comfyform.com/s/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+    <input type="text" name="Full name" placeholder="John Doe">
+    <input type="email" name="Email" placeholder="john.doe@example.com">
+    <input type="file" name="Cover letter">
+    <input type="file" name="Photos" multiple>
+    <textarea name="Message" placeholder="Hello, I'd like to..."></textarea>
+    <button type="submit">Submit</button>
+</form>
+```
+
+Replace `YOUR_FORM_ID` with the actual ID provided by Comfyform for your form. The `multiple` attribute on the `input` element allows users to select more than one file.
+
+### Step 2: Secure Your Form with Honeypot Field
+
+Insert the following security field above the submit button in your form to prevent spam:
+
+```html
+<!-- Start of a security code to prevent bot submissions -->
+<div style="position: absolute; left: -9999px;">
+    <label for="emailAgainHpInput">If you're huuuman, ignore this field</label>
+    <input type="email" name="YOUR_HONEYPOT_FIELD" id="emailAgainHpInput" placeholder="your@email.com" tabindex="-1" autocomplete="nopls" data-1p-ignore data-lpignore="true">
+</div>
+<!-- End of security code -->
+```
+
+Adjust `YOUR_HONEYPOT_FIELD` according to your form security settings in Comfyform.
+
+### Step 3: Customize as Needed
+
+Tailor the form to your preferences—modify fields, update placeholders, or implement custom styles. For HTML structure and styling tips, refer to our [code structure and styling guide for HTML forms](https://comfyform.com/blog/how-to-structure-and-style-form-html-code-correctly-ux/).
+
+### Step 4: Deploy and Test
+
+Once you have your form set up, deploy your website, and perform a test submission to ensure everything is functioning as intended.
+
+## Final Code
+
+Here's what your final form code should look like. Remember to replace `YOUR_FORM_ID` and `YOUR_HONEYPOT_FIELD` with the appropriate values.
+
+```html
+<form action="https://api.comfyform.com/s/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+    <input type="text" name="Full name" placeholder="John Doe">
+    <input type="email" name="Email" placeholder="john.doe@example.com">
+    <input type="file" name="Cover letter">
+    <input type="file" name="Photos" multiple>
+    <textarea name="Message" placeholder="Hello, I'd like to..."></textarea>
+    <!-- Start of a security code to prevent bot submissions -->
+    <div style="position: absolute; left: -9999px;">
+        <label for="emailAgainHpInput">If you're huuuman, ignore this field</label>
+        <input type="email" name="YOUR_HONEYPOT_FIELD" id="emailAgainHpInput" placeholder="your@email.com" tabindex="-1" autocomplete="nopls" data-1p-ignore data-lpignore="true">
+    </div>
+    <!-- End of security code -->
+    <button type="submit">Submit</button>
+</form>
+```
+
+## Tips for a Seamless File Upload Experience
+
+- **File Input Customization**: Tailor the file input fields to accept specific file types by using the `accept` attribute. For example, `accept="application/pdf"` for allowing only PDF files.
+- **Max File Size**: Be mindful of the maximum file size allowed by Comfyform to prevent failed submissions. The maximum file size is currently set to 16MB.
+
+## Protecting Against Bots
+
+While Comfyform forms are automatically equipped with Honeypot security, it's crucial to include the provided security code snippet within your form to maintain this level of protection. This invisible field helps filter out bot submissions by providing a field that should only be filled out by automated scripts.
+
+## Handling Multiple Files
+
+When users need to upload more than one file, the `multiple` attribute is your friend. It allows for the selection of multiple files in a single input field, organized and uploaded together to Comfyform.
+
+## Enjoy Safe and Secure File Handling
+
+With Comfyform's form solutions, you can trust that file uploads are handled with the utmost security. Start implementing your file-upload-enabled HTML form today and take the first step towards more dynamic data collection with Comfyform.

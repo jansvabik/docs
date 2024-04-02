@@ -1,0 +1,57 @@
+---
+title: "hCaptcha"
+'og:description': "Learn how to integrate hCaptcha with Comfyform for advanced bot detection and spam prevention. Follow our guide for seamless setup to secure your web forms."
+icon: "hand"
+---
+
+Enhance your Comfyform's security by integrating hCaptcha, a **privacy-focused captcha service that helps distinguish humans from bots**. Setting up hCaptcha with your Comfyform is a straightforward process that shields your forms effectively **without compromising user experience**.
+
+Here's a step-by-step guide to adding hCaptcha to your Comfyform web forms.
+
+## Step 1: Register Your Site with hCaptcha
+
+Firstly, you need to sign up for hCaptcha and register your site to receive the necessary keys for integration. If you've already registered your website, you can [skip to the second step](#step-2-configure-hcaptcha-in-comfyform-dashboard).
+
+1. Visit [hCaptcha website](https://www.hcaptcha.com/).
+2. Create an account or sign in if you already have one.
+3. Open [Add Site](https://dashboard.hcaptcha.com/sites/new?type=bot-management) in the Sites section.
+4. Fill in your site details, including the domain name.
+5. Select the hCaptcha behavior you want to use, Comfyform supports all of them:
+    - **Always Challenge** (users will see a challenge on each request)
+    - **Passive** (only score–no visible challenges)
+    - **99.9% Passive** (only challenge higher risk users)
+6. Pick the preferred Passing Threshold, we recommend selecting the **Auto** option.
+7. Complete the registration by clicking the "Save" button.
+
+Upon completion, you will be provided with the Sitekey which is a public key for implementation on your site's frontend. For enabling the security in your Comfyform, you'll need to find your Secret Key in your hCaptcha [account settings](https://dashboard.hcaptcha.com/settings). Note that the Secret Key may be displayed only once.
+
+## Step 2: Configure hCaptcha in Comfyform Dashboard
+
+With your hCaptcha Secret Key in hand, configure it within your Comfyform settings.
+
+1. Log into your [Comfyform dashboard](https://app.comfyform.com/sign/in).
+2. Access the [Forms](https://app.comfyform.com/forms) section and open the form you want to protect.
+3. Click on the **Security** tab.
+4. Locate the **Captcha** section and click on "Activate" or "Modify".
+5. Choose **hCaptcha** as your provider.
+6. Enter your **Secret Key** into the designated field.
+7. Click the **Save changes** button to apply and activate hCaptcha protection.
+
+![Configuring hCaptcha in Comfyform](/static/hcaptcha-setup.png)
+
+## Step 3: Implement hCaptcha on Your Site
+
+To activate hCaptcha on your site, you'll need to include the hCaptcha script in the HTML of your webpage or use a compatible plugin if your site runs a content management system. Refer to [hCaptcha Docs](https://docs.hcaptcha.com/) for comprehensive guidance on adding the widget code to your website.
+
+## Step 4: Test Your hCaptcha Implementation
+
+Once hCaptcha is set up on both your Comfyform dashboard and website, conduct thorough testing:
+
+- Verify that the hCaptcha challenge is visible and functional within your forms.
+- Test form submissions to check that the captcha is verified correctly and only genuine entries are allowed through.
+
+Testing ensures that real users can submit your forms without hassle, while spammers and bots are kept at bay.
+
+## Need Help with hCaptcha?
+
+Should you have any questions or need assistance with hCaptcha setup on your Comfyform, please don't hesitate to get in touch. Reach out to our support team at [support@comfyform.com](mailto:support@comfyform.com), or join the conversation in our [Comfyform Discord server](https://discord.gg/Fm7ac3am8S). We are committed to helping you maintain a secure, efficient, and user-friendly form experience.

@@ -1,0 +1,68 @@
+---
+title: 'JSON'
+'og:description': "Experience streamlined form integration with Comfyform's guide on JavaScript submissions, perfect for enhancing single-page apps and dynamic web projects."
+---
+
+Craft a seamless user experience by deploying your Comfyform with JavaScript, utilizing JSON for simple and consistent data submissions. This is ideal for single-page applications and JavaScript frameworks where form inputs are bound to JavaScript object properties, allowing for smoother data serialization and handling.
+
+Note that this implementation method doesn't support files uploading.
+
+<Tip>
+**Keep it seamless, use the provided code upon form creation**
+
+Upon creating your new form in Comfyform, you'll receive a code snippet for this specific implementation approach. Grab the ready-to-go code, customize as desired, and be assured it includes the correct form ID for immediate use.
+
+[Create new form](https://app.comfyform.com/forms/)
+</Tip>
+
+## Step-by-Step Guide to Submitting Data as JSON
+
+### Step 1: Prepare the JavaScript Function
+
+Add the JavaScript Fetch function within a `<script>` tag on your page or as an external file.
+
+```js
+async function comfyform(id, data) {
+    const response = await fetch('https://api.comfyform.com/s/' + id, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    const body = await response.json()
+    if (!response.ok) {
+        // handle problems (e.g. invalid recaptcha, file is too big, no content etc.
+        return alert(body.msg)
+    }
+    // handle successful submission
+    alert(body.msg)
+}
+```
+
+There are two places in the JavaScript code you should tailor to your needs. These lines are highlighted so you can easily find them. It's the error handling part and the success handling part (what should happen when an error occurs during the submission and what should happen when there is no error and the submission has been successfully processed).
+
+### Step 2: Call the `comfyform` Function to Send Data
+
+Rather than constructing FormData, just pass the JavaScript object to the `comfyform` function which will serialize the data by converting a JavaScript object to a JSON string, perfect for consistent data structures sent from your application.
+
+```js
+comfyform('YOUR_FORM_ID', {
+    name: 'Elon Musk',
+    email: 'musk@example.com',
+    message: 'Delighted with Comfyform\'s simplicity and efficiency.',
+})
+```
+
+Replace `YOUR_FORM_ID` with the actual ID provided by Comfyform for your form.
+
+### Step 3: Implement Advanced Spam Protection
+When handling submissions via JavaScript, it's important to implement additional security measures such as [reCAPTCHA](/spam-protection/recaptcha/), [hCaptcha](/spam-protection/hcaptcha/), or [Turnstile](/spam-protection/turnstile/).
+
+### Step 4: Test Your Implementation
+
+Once you've deployed your implementation, it's important to thoroughly test it to ensure submissions are handled properly. Test it by calling the `comfyform` function with your form ID and some testing data like in the example in [Step 2](#step-2-call-the-comfyform-function-to-send-data).
+
+## Customizing Your Submissions
+Need a more customized approach or require assistance with integrating JavaScript JSON submissions with your Comfyform? Contact our support team at [support@comfyform.com](mailto:support@comfyform.com) or join the [Comfyform Community on Discord](https://discord.gg/Fm7ac3am8S), and we'll be more than happy to help tailor your forms to your specific needs.

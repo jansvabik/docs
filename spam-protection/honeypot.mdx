@@ -1,0 +1,63 @@
+---
+title: "Honeypot"
+'og:description': "Learn how to set up honeypot protection for your Comfyform forms with both universal and unique field names to effectively deter spamming bots."
+icon: "honey-pot"
+---
+
+In our steadfast commitment to providing robust security, Comfyform utilizes a unique approach to [honeypot spam protection](https://comfyform.com/security/honeypot-field/). By generating a **distinct honeypot field name for every form** upon its creation, we **ensure a higher level of security** compared to other services which may rely on universal, predictable field names. This personalized approach makes it significantly more difficult for bots to recognize and bypass our honeypot fields, thus **enhancing protection against unwanted spam submissions**. However, we still allow our users to use a standard honeypot field using `_cf_sp_hp_email` field name so it can be **implemented within seconds**.
+
+## Setting Up Universal Honeypot (fast, may not be as effective)
+
+Comfyform allows to implement a universal honeypot field using `_cf_sp_hp_email` field name. This way, the honeypot protection can be implemented easily in seconds, but it may not be as effective as using your [form's unique honeypot field](#setting-up-extremely-effective-honeypot-recommended) name. Just add this code to your HTML form:
+
+```html
+<div style="position: absolute; left: -9876px;">
+    <label for="emailHpInput">If you're huuuman, ignore this field</label>
+    <input type="email" name="_cf_sp_hp_email" id="emailHpInput" placeholder="your@email.com" tabindex="-1" autocomplete="nopls" data-1p-ignore data-lpignore="true">
+</div>
+```
+
+This honeypot field will work with every Comfyform form. We tried to include the most of "honey" to ensure that bots are detected in the maximum number of cases. In case you'll add your form's unique honeypot field to this universal one, both will be checked so both of them needs to stay empty.
+
+## Setting Up Extremely Effective Honeypot (recommended)
+
+To effectively implement the honeypot technique in your Comfyform, you should utilize the code snippet provided right after your form is created. Alternatively, you can check the honeypot field name in the spam protection settings of your form in dashboard.
+
+<Tip>
+**Keep it seamless, use the provided code upon form creation**
+
+Upon creating your new form in Comfyform, you'll receive a code snippet with effective honeypot implementation in mind. Grab the ready-to-go code, customize as desired, and be assured it includes the correct form ID and honeypot field name for immediate use.
+
+[Create new form](https://app.comfyform.com/forms/)
+</Tip>
+
+### Step 1: Retrieve Your Unique Honeypot Field Name
+
+1. Log in to your [Comfyform dashboard](https://app.comfyform.com/forms).
+2. Navigate to the [Forms](https://app.comfyform.com/forms) section and open the form you wish to secure.
+3. Click on the Security tab.
+4. Locate the Honeypot settings and click the "Modify" or "Activate" button.
+5. Copy your Honeypot field name designated for that particular form. You can also rename it and use your own field name, for example if the generated one is a name you'd like to use for real data.
+
+### Step 2: Implement the Honeypot in Your HTML Form
+
+Incorporate the honeypot field into your form's HTML structure as illustrated below, replacing `HONEYPOT_FIELD_NAME` with the actual name provided.
+
+```html
+<div style="position: absolute; left: -9876px;">
+    <label for="emailAgainHpInput">If you're huuuman, ignore this field</label>
+    <input type="email" name="HONEYPOT_FIELD_NAME" id="emailAgainHpInput" placeholder="your@email.com" tabindex="-1" autocomplete="nopls" data-1p-ignore data-lpignore="true">
+</div>
+```
+
+## Best Practices for Honeypot Implementation
+
+- **Styles**: Ensure your honeypot field is hidden using `position: absolute; left: -9876px;` on a parent element — this keeps the field invisible to users but accessible and tempting to bots.
+- **Autocomplete**: Turn off autocomplete for the honeypot field by setting `autocomplete="nopls"`. Don't use `off` value because some browsers may ignore it and still fill out the field.
+- **Tabindex**: Set `tabindex="-1"` to prevent keyboard navigation users from selecting the field.
+- **Keep the field tempting**: By camouflaging the field as a normal one you'll get better results from the honeypot protection. Don't omit the label, placeholder and a name containing `email` word.
+
+Learn more about [making the honeypot field the most efficient](https://comfyform.com/blog/how-to-make-the-honeypot-field-the-most-efficient/) on our blog.
+
+## Need Assistance?
+Should you require further assistance with setting up honeypot spam protection or have any questions regarding Comfyform's security features, don't hesitate to reach out. Our support team is dedicated to ensuring your forms are secure and spam-free. Contact us at [support@comfyform.com](mailto:support@comfyform.com) or join our [Comfyform Discord server](https://discord.gg/Fm7ac3am8S) and we'll be happy to help.

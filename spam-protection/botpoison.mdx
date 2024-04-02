@@ -1,0 +1,55 @@
+---
+title: "Botpoison"
+'og:description': "Set up Botpoison for seamless, invisible bot protection on your forms and integrate your setup with Comfyform. Perfect for static sites and pure HTML forms"
+icon: "aperture"
+---
+
+Incorporate Botpoison's **invisible and user-friendly anti-spam solution** into your Comfyform to safeguard your website against bots without relying on CAPTCHAs. Botpoison is an effective spam prevention tool that operates **silently in the background, perfect for static sites** and handling native HTML submission forms.
+
+Here is your step-by-step guide to adding Botpoison protection to your Comfyform web forms.
+
+## Step 1: Sign Up with Botpoison
+
+First, you must sign up for Botpoison to receive the keys required for integration. If you already have an account and Botpoison configuration (keys) for your site, you can [move to the next step](#step-2-implement-botpoison-on-your-site).
+
+1. Visit [Botpoison's website](https://botpoison.com/), register for an account, and sign in.
+2. Click on the [Create configuration](https://botpoison.com/dashboard/configurations/create/) button and fill in the website name.
+3. Finish the setup using the "Create" button.
+
+Once you have completed the setup, you will be given two keys:
+- **Public Key**: Implemented on your site to initiate the protection.
+- **Secret Key**: Used server-side to validate submissions. Ensure this remains private and secure.
+
+## Step 2: Implement Botpoison on Your Site
+
+Integrate Botpoison into your site by including the Botpoison script in the HTML of your webpage and adding a `data-botpoison-public-key` attribute on your `form` tag. Visit [Botpoison Docs](https://botpoison.com/documentation/) for details and ready-to-use code examples.
+
+## Step 3: Configure Botpoison in Comfyform Dashboard
+
+Configuring Botpoison in Comfyform is straightforward and can be completed in a few simple steps:
+
+1. Log into your [Comfyform dashboard](https://app.comfyform.com/sign/in).
+2. Select the [Forms](https://app.comfyform.com/forms) section and choose the form you'd like to secure.
+3. Click on the **Security** tab.
+4. Find **Botpoison** and click on "Activate" or "Modify".
+5. Enter your Botpoison **Secret Key** in the field provided.
+6. Save your changes by clicking on the **Save changes** button.
+
+## Step 4: Test Your Botpoison Integration
+
+Once Botpoison is configured both in Comfyform and on your website, it's crucial to test your integration. Submit the form to make sure Botpoison validates the entries without user intervention and the submission is displayed in your Comfyform Dashboard without the spam flag.
+
+Conducting these tests guarantees that your real users have a frictionless experience while bots are prevented from spamming the forms.
+
+## Understanding Botpoison's Protection
+
+Botpoison thwarts bots using a combination of techniques:
+
+- **Hashcash**: A cryptographic proof-of-work algorithm.
+- **IP Reputation Checks**: Cross-reference IPs with proprietary and third-party datasets.
+- **IP Rate-limits**: Control the number of requests from unique IPs.
+- **Session and Request Analysis**: Monitor behavior to distinguish bots from human users.
+
+## Need Support with Botpoison?
+
+If you require assistance with setting up Botpoison, or if you come across any issues, please reach out to us. Connect with our support team at [support@comfyform.com](mailto:support@comfyform.com), or get involved with our community on the [Comfyform Discord server](https://discord.gg/Fm7ac3am8S). We're dedicated to helping you maintain an uninterrupted, secure form experience that respects your users' time and privacy.

@@ -1,0 +1,88 @@
+---
+title: 'Submitting HTML Form with JavaScript FormData (can also upload files)'
+sidebarTitle: 'JavaScript (FormData)'
+'og:description': "Learn to submit forms dynamically on your site using JavaScript with Comfyform. Includes step-by-step instructions for file uploads and HTML fallback."
+---
+
+Enhance your website's functionality and UX by submitting the form data to [Comfyform](https://comfyform.com/) using JavaScript. This basic integration method allows for dynamic and responsive form handling without the need for traditional form submission (which should, however, still remain in the code as a fallback method). This page details how to set up Comfyform with JavaScript Fetch for easy data submission, with or without file uploads.
+
+Please note that the [honeypot field](/spam-protection/honeypot) included in the HTML form is only effective when JavaScript is not active, such as when a user's browser has JavaScript disabled. In these cases, the form will fall back to a standard HTML submission method which should still contain the honeypot for bot detection.
+
+<Tip>
+**Keep it seamless, use the provided code upon form creation**
+
+Upon creating your new form in Comfyform, you'll receive a code snippet for this specific implementation approach. Grab the ready-to-go code, customize as desired, and be assured it includes the correct form ID and honeypot field name for immediate use.
+
+[Create new form](https://app.comfyform.com/forms/)
+</Tip>
+
+## Step-by-Step Guide to Submitting Form Using JavaScript
+
+### Step 1: Set Up Your Form in HTML
+
+Incorporate the provided HTML form code on your desired webpage. Assign `id="comfyform"` for easy targeting with JavaScript and keep `enctype="multipart/form-data"` if file uploading is needed.
+
+```html
+<form id="comfyform" action="https://api.comfyform.com/s/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+    <input type="text" name="Full name" placeholder="John Doe">
+    <input type="email" name="Email" placeholder="john.doe@example.com">
+    <input type="file" name="Cover letter">
+    <input type="file" name="Photos" multiple>
+    <textarea name="Message" placeholder="Hello, I'd like to..."></textarea>
+    <!-- Start of a security code to prevent bot submissions -->
+    <div style="position: absolute; left: -9999px;">
+        <label for="emailAgainHpInput">If you're huuuman, ignore this field</label>
+        <input type="email" name="YOUR_HONEYPOT_FIELD" id="emailAgainHpInput" placeholder="your@email.com" tabindex="-1" autocomplete="nopls" data-1p-ignore data-lpignore="true">
+    </div>
+    <!-- End of security code -->
+    <button type="submit">Submit</button>
+</form>
+```
+
+Replace `YOUR_FORM_ID` with the actual ID provided by Comfyform for your form. Also, adjust `YOUR_HONEYPOT_FIELD` according to your form security settings in Comfyform.
+
+### Step 2: Attach the JavaScript Function
+
+Add the JavaScript Fetch function within a `<script>` tag on your page or as an external file. If your HTML form is correctly set up from the previous step, the JavaScript code below will load all the necessary data from the HTML form (endpoint URL and field values).
+
+```js
+const form = document.getElementById('comfyform')
+form.addEventListener('submit', async function (e) {
+    e.preventDefault()
+    const url = e.target.getAttribute('action')
+    const formData = new FormData(e.target)
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+        },
+        body: formData,
+    })
+    const body = await response.json()
+    if (!response.ok) {
+        // handle problems (e.g. invalid recaptcha, file is too big, no content etc.
+        return alert(body.msg)
+    }
+    // handle successful submission
+    alert(body.msg)
+    e.target.reset()
+})
+```
+
+### Step 3: Customize as Needed
+
+Tailor the HTML form to your preferences—modify fields, update placeholders, or implement custom styles so it matches your brand.
+
+There are also two places in the JavaScript code you should tailor to your needs. These lines are highlighted so you can easily find them. It's the error handling part and the success handling part (what should happen when an error occurs during the submission and what should happen when there is no error and the submission has been successfully processed).
+
+### Step 4: Test Your Form
+
+Once you've deployed your form, it's important to thoroughly test it to ensure submissions are handled properly. Test it by filling out the form and submitting it through the website interface.
+
+## Things to Note
+
+- **Fallback for Non-JavaScript Users**: Maintain an HTML fallback for users with JavaScript disabled (e.g. in Tor browser), ensuring the form is still functional. Protect it against bots using the honeypot field or other security features.
+- **Error Handling**: Robust error handling is vital. For more details on managing submission errors, refer to our [Submission Errors](/submissions/errors) guide.
+- **Security**: When handling submissions via JavaScript, it's important to implement additional security measures such as reCAPTCHA, hCaptcha, or Turnstile.
+
+By implementing JavaScript for form submissions, you can provide an engaging and user-friendly experience on your website. For further assistance or customization support, feel free to contact our team at [support@comfyform.com](mailto:support@comfyform.com) or join the [Comfyform Community on Discord](https://discord.gg/Fm7ac3am8S).

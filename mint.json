@@ -1,91 +1,177 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Docs",
-  "logo": {
-    "dark": "/logo/logo.png",
-    "light": "/logo/logo.png"
-  },
-  "favicon": "https://comfyform.com/favicon/apple-touch-icon.png",
-  "colors": {
-    "primary": "#273e9c",
-    "light": "#a7bEeC",
-    "dark": "#273e9c",
-    "anchors": {
-      "from": "#273e9c",
-      "to": "#677edc"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@comfyform.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+    "$schema": "https://mintlify.com/schema.json",
+    "name": "Comfyform Docs",
+    "logo": {
+        "dark": "/static/logo/logo.png",
+        "light": "/static/logo/logo.png"
     },
-    {
-      "name": "Discord Community",
-      "icon": "discord",
-      "url": "https://discord.gg/Fm7ac3am8S"
+    "favicon": "/apple-touch-icon.png",
+    "colors": {
+        "primary": "#273e9c",
+        "light": "#a7bEeC",
+        "dark": "#273e9c",
+        "anchors": {
+            "from": "#273e9c",
+            "to": "#677edc"
+        }
     },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://comfyform.com/blog/"
+    "topbarLinks": [
+        {
+            "name": "Login",
+            "url": "https://app.comfyform.com/sign/in"
+        }
+    ],
+    "topbarCtaButton": {
+        "name": "Sign Up Free",
+        "url": "https://app.comfyform.com/sign/up"
+    },
+    "primaryTab": {
+        "name": "Using Comfyform"
+    },
+    "tabs": [
+        {
+            "name": "Sending Submissions",
+            "url": "submissions"
+        },
+        {
+            "name": "API Reference",
+            "url": "api-reference"
+        }
+    ],
+    "search": {
+        "prompt": "Search in Comfyform Docs..."
+    },
+    "seo": {
+        "indexHiddenPages": true
+    },
+    "anchors": [
+        {
+            "name": "Website",
+            "icon": "globe",
+            "url": "https://comfyform.com/"
+        },
+        {
+            "name": "Blog",
+            "icon": "newspaper",
+            "url": "https://comfyform.com/blog/"
+        },
+        {
+            "name": "Community",
+            "icon": "discord",
+            "url": "https://discord.gg/Fm7ac3am8S"
+        },
+        {
+            "name": "Status",
+            "icon": "heart-pulse",
+            "url": "https://comfyform.instatus.com/"
+        }
+    ],
+    "_feedback": {
+        "thumbsRating": true,
+        "suggestEdit": true,
+        "raiseIssue": true
+    },
+    "navigation": [
+        {
+            "group": "",
+            "pages": [
+                "introduction",
+                "quickstart"
+            ]
+        },
+        {
+            "group": "Forms",
+            "pages": [
+                "creating-form",
+                {
+                    "group": "Notifications",
+                    "pages": [
+                        "notifications/email",
+                        "notifications/sms",
+                        "notifications/autoresponder",
+                        "notifications/webhooks"
+                    ]
+                },
+                {
+                    "group": "Spam Protection",
+                    "pages": [
+                        "spam-protection/honeypot",
+                        "spam-protection/timetrap",
+                        "spam-protection/recaptcha",
+                        "spam-protection/hcaptcha",
+                        "spam-protection/turnstile",
+                        "spam-protection/botpoison",
+                        "spam-protection/location-filter",
+                        "spam-protection/language-filter",
+                        "spam-protection/disposable-email",
+                        "spam-protection/email-confirmation",
+                        "spam-protection/content-monitoring",
+                        "spam-protection/link-inspection"
+                    ]
+                },
+                {
+                    "group": "Plugins & Integrations",
+                    "pages": [
+                        "integrations/google-sheets",
+                        "integrations/hubspot",
+                        "integrations/slack",
+                        "integrations/discord",
+                        "integrations/zapier",
+                        "integrations/make"
+                    ]
+                },
+                {
+                    "group": "Exporting Data",
+                    "pages": [
+                        "export/json",
+                        "export/csv",
+                        "export/xml",
+                        "export/sql"
+                    ]
+                },
+                "settings"
+            ]
+        },
+        {
+            "group": "API Documentation",
+            "pages": [
+                "api-reference/introduction",
+                "api-reference/authorization"
+            ]
+        },
+        {
+            "group": "Sending Submissions",
+            "pages": [
+                "submissions/introduction",
+                {
+                    "group": "Submitting Data",
+                    "pages": [
+                        {
+                            "group": "HTML",
+                            "pages": [
+                                "submissions/basic-html-form",
+                                "submissions/html-form-with-file-upload"
+                            ]
+                        },
+                        {
+                            "group": "JavaScript",
+                            "pages": [
+                                "submissions/javascript-formdata",
+                                "submissions/json"
+                            ]
+                        },
+                        "submissions/backend-integration"
+                    ]
+                },
+                "submissions/testing-form-using-curl",
+                "submissions/errors"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "facebook": "https://www.facebook.com/comfyformcom/",
+        "twitter": "https://www.twitter.com/comfyform_com",
+        "linkedin": "https://www.linkedin.com/company/comfyform",
+        "discord": "https://discord.gg/Fm7ac3am8S"
     }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
 }

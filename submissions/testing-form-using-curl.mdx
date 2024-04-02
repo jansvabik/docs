@@ -1,0 +1,36 @@
+---
+title: 'Testing form using curl'
+'og:description': 'Ensure your Comfyform setup is flawless by testing form submissions with curl command-line tool.'
+---
+
+Easily verify your Comfyform setup, including email or SMS notifications, by utilizing [`curl`](https://curl.se/) to send test submissions from your command line. This straightforward tool allows you to simulate form submissions without the need for a web interface. Ensure you have `curl` installed on your computer to begin the testing process.
+
+<Tip>
+**What is curl**
+
+[cURL](https://curl.se/) is a command-line tool and library for transferring data with URLs, supporting a variety of protocols like HTTP, FTP, and others, commonly used for downloading or uploading files and web services communication.
+</Tip>
+
+## Quick Test Command
+
+Use the following command to send a test submission to your Comfyform endpoint:
+
+```sh
+curl -X POST https://api.comfyform.com/s/YOUR_FORM_ID \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{"Full Name":"Elon Musk","Email":"musk@example.com","Message":"Delighted with Comfyform'\''s simplicity and efficiency."}'
+```
+
+Don't forget to replace `YOUR_FORM_ID` with the actual ID of your form. Need to find your form ID? Simply head over to your [dashboard](https://app.comfyform.com/forms), select the form you'd like to test, and click on "Copy endpoint URL" – it's that easy!
+
+![Form installation guide stripe in Comfyform app](/static/form-installation-stripe.png)
+
+## What to Expect
+
+Upon running the test, here's what should happen:
+
+- Your data submission will show up in your Comfyform dashboard.
+- If you've configured notifications, you'll receive an email or SMS alert based on your preferences.
+
+Happy testing and looking forward to seeing your forms in action!

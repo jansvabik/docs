@@ -1,0 +1,91 @@
+---
+title: "Timetrap"
+'og:description': "Enhance your form's defense against bots with Timetrap protection in Comfyform. Customize the time field name and set the time threshold for efficiency."
+icon: "timer"
+---
+
+Timetrap is a **stealthy, time-based security measure** employed by Comfyform to thwart automated spam submissions. It accomplishes this by keeping **track of when a form is loaded and then comparing this time to when the form is submitted**. If a submission occurs impossibly quickly after a form is loaded—faster than a human could normally complete it—Timetrap flags it as potential bot activity. This protection operates **unnoticed by users**, making it an ideal blend of efficiency and subtlety.
+
+## Setting Up Timetrap in Comfyform
+
+### Step 1: Implement Timetrap Field in Your Form
+
+Integrate Timetrap into your forms with this HTML input:
+
+```html
+<input type="hidden" name="_cf_sp_tt" value="PAGELOAD_TIMESTAMP_HERE">
+```
+
+Replace the placeholder `PAGELOAD_TIMESTAMP_HERE` with the actual timestamp at the moment the page loads. Timetrap utilizes the standard [RFC 3339](https://tools.ietf.org/html/rfc3339) format for datetime values to monitor the time interval between form load and submission. Comfyform expects submissions to include a timestamp in either of these precise examples of RFC 3339 formats:
+
+- UTC: `2024-01-22T10:36:59.906157Z`
+- With offset: `2024-01-22T11:36:59.906157+01:00`
+
+#### How to get the timestamp at the page load?
+
+<Tabs>
+  <Tab title="Server-side rendered websites">
+    Generate the timestamp on the backend and pass the value to the final HTML code of the page. Below is an example implementation in PHP. If you changed your timetrap field name, you need to update the `name` attribute to the correct field value.
+
+    ```php
+    <input type="hidden" name="_cf_sp_tt" value="<?=date(DATE_RFC3339_EXTENDED)?>">
+    ```
+  </Tab>
+  <Tab title="Static pages or JavaScript-dependent websites">
+    Assign the current timestamp using JavaScript. Note that if the user has disabled JavaScript, the submission will be marked as spam.
+
+    <Warning>
+        For static websites, including those built with static site generators or manually written in pure HTML, Timetrap necessitates JavaScript to dynamically set the current timestamp in the hidden field. If JavaScript is disabled in the user's browser, Timetrap validation will not function, and the submission could be erroneously marked as spam.
+    </Warning>
+
+    You can use this piece of code for adding the timestamp value to the hidden input field. If you changed your timetrap field name, you need to update the `field` variable to the correct field name.
+
+    ```js
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const field = '_cf_sp_tt'
+            const timestamp = new Date().toISOString()
+            document.querySelector(`input[name="${field}"]`).value = timestamp
+        })
+    </script>
+    ```
+  </Tab>
+</Tabs>
+
+
+### Step 2: Enable the Timetrap Security in Comfyform
+
+1. Log into your [Comfyform dashboard](https://app.comfyform.com/sign/in).
+2. Navigate to the [Forms](https://app.comfyform.com/forms) section and open the form you wish to secure.
+3. Select the form you'd like to secure with Timetrap field.
+4. Click on the **Security** tab.
+5. Locate the **Timetrap** section and click the "Activate" or "Modify" button.
+6. _Optional:_ You can change the Timetrap field name which can improve the protection efficiency. If you change it, you need to correspondingly update the `name` attribute of the field from the [Step 1](#step-1-implement-timetrap-field-in-your-form).
+7. Set a minimum time threshold in seconds, which is the time that must elapse before a form submission is considered legitimate. A typical starting point is 5 seconds.
+8. Click the **Save changes** button to apply the changes.
+
+<Tip>
+**How to Determine the Ideal Time Threshold**
+
+Choosing the right time threshold for Timetrap involves a balance between security and user experience. Consider the complexity of your form—longer forms may require more time to fill out. A common starting point is 5-10 seconds, but you can adjust this based on testing:
+
+1. **Analyze Form Length**: Consider how many fields there are and how much time an average user would need to complete the form.
+2. **Conduct User Testing**: Have real users test the form to gauge how long it takes them to fill it out comfortably.
+3. **Monitor Submissions**: After implementation, observe the submission times of genuine users versus flagged entries. Adjust accordingly.
+4. **Iterate and Optimize**: Over time, fine-tune the threshold based on the form's performance—it's not a 'set-it-and-forget-it' setting.
+
+Remember, the goal is to catch bots, not frustrate users. A well-chosen threshold means better protection with minimal impact on genuine submissions.
+</Tip>
+
+## Testing Your Timetrap Setting
+
+Ensure Timetrap functionality meets your standards:
+
+1. Attempt a submission before the set threshold to ensure it is blocked or flagged as spam.
+2. Complete a submission after the threshold to ensure legitimate entries are accepted.
+
+By performing these tests, you verify that Timetrap effectively discriminates against bot activity without hindering real users.
+
+## Need Help with Timetrap?
+
+Should you need any support with Timetrap setup or have questions, our Comfyform support team is readily available to assist you. Get in touch at [support@comfyform.com](mailto:support@comfyform.com) or through our [Comfyform Discord server](https://discord.gg/Fm7ac3am8S). Our aim is to ensure your forms remain secure and user-friendly with minimal spam interruptions.

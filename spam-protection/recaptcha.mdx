@@ -1,0 +1,53 @@
+---
+title: "reCAPTCHA"
+'og:description': "Secure your forms against spam with reCAPTCHA on Comfyform. Follow our simple guide to easily implement reCAPTCHA, including checkbox and invisible options."
+icon: "rotate-right"
+---
+
+Protect your Comfyform submissions from spam and automated abuse with **reCAPTCHA**. Comfyform currently supports reCAPTCHA v2, including **both the visible "I am not a robot" checkbox and the invisible reCAPTCHA** that works in the background. Plans for integrating reCAPTCHA v3 are also underway, which will provide a score-based verification system.
+
+Here's a step-by-step guide to implementing reCAPTCHA v2 for your forms.
+
+## Step 1: Register Your Site with reCAPTCHA
+
+Before you can implement reCAPTCHA security in Comfyform, you must register your site with the reCAPTCHA service. If you've already registered your website, you can [skip to the second step](#step-2-configure-recaptcha-in-comfyform-dashboard).
+
+1. Visit the [reCAPTCHA website](https://www.google.com/recaptcha/admin/create).
+2. Sign in with your Google account if you're not already logged in.
+3. Provide the label for your reCAPTCHA (e.g. My Super Website).
+4. Select "Challenge (v2)" and the type you wish to use:
+   - "I am not a robot" Checkbox
+   - Invisible reCAPTCHA badge
+5. Enter your domain(s) under the Domains section (e.g. mysuperwebsite.com).
+6. Click the "Submit" button to finish the registration.
+
+Once registered, you'll receive two crucial pieces of information:
+- **Site Key**: Public key implemented on your site's frontend.
+- **Secret Key**: Private key used for communication between the backend and the reCAPTCHA service for validating requests from your site. Do not publicly disclose this key.
+
+## Step 2: Configure reCAPTCHA in Comfyform Dashboard
+
+With your Secret Key in hand, it's time to configure reCAPTCHA for your forms in Comfyform.
+
+1. Log into your [Comfyform dashboard](https://app.comfyform.com/sign/in).
+2. Navigate to the [Forms](https://app.comfyform.com/forms) section and open the form you wish to secure.
+3. Select the form you'd like to enhance with reCAPTCHA.
+4. Click on the Security tab.
+5. Locate the Captcha section and click the "Activate" or "Modify" button.
+6. Choose **reCAPTCHA** as your provider.
+7. Enter your **Secret Key** into the designated field.
+8. Click the **Save changes** button to apply the changes.
+
+![Setting up reCAPTCHA in Comfyform dashboard](/static/recaptcha-setup.png)
+
+## Step 3: Implement reCAPTCHA on Your Site
+
+To activate reCAPTCHA on your site, you'll need to include the reCAPTCHA script and render it where your form is displayed or implement it using JavaScript. Google's [reCAPTCHA documentation](https://developers.google.com/recaptcha/intro) provides detailed instructions for this process.
+
+## Step 4: Test Your Implementation
+
+After configuring reCAPTCHA in both Google's service and your Comfyform dashboard, as well as implementing it on your site, it's essential to run tests. Submit forms from your site to verify that the reCAPTCHA is appearing and functioning correctly, and check that submissions from actual users pass through while automated submissions are blocked.
+
+## Need assistance?
+
+For assistance or if you encounter any issues with setting up reCAPTCHA for your forms, our support team is here to help. Contact us at [support@comfyform.com](mailto:support@comfyform.com) or join our [Comfyform Discord server](https://discord.gg/Fm7ac3am8S) and we will guide you through the process for a secure, spam-free form experience.

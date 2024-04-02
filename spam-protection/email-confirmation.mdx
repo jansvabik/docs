@@ -1,0 +1,62 @@
+---
+title: "Email Confirmation"
+'og:description': "Enhance security with Comfyform Email Confirmation. Ensure genuine responses by verifying user email addresses and implementing redirection upon confirmation."
+icon: "envelope-circle-check"
+---
+
+<Warning>
+We are in the process of developing this feature and will proceed with thorough testing to ensure its quality meets your expectations. We anticipate that it will be available by end of May 2024. Stay tuned!
+</Warning>
+
+Implementing Email Confirmation protection with Comfyform empowers you to **validate the authenticity of each form submission**. By requiring confirmation from the user through their email, you can **deter fraudulent submissions** and **maintain a high-quality contact list**. This guide walks you through enabling **Email Confirmation for your forms**, allowing for an additional layer of verification.
+
+<Tip>
+**Maximize the Effectiveness with Disposable Email Protection**
+
+For enhanced submission authenticity, consider pairing Email Confirmation with Disposable Email protection. This combination provides robust defense, verifying not only that the email addresses are legitimate but also ensuring they are not temporary solutions used to bypass submission forms. Keep your contact lists clean and safeguarded with this dual-layer approach. [How to set up Disposable Email Protection →](/spam-protection/disposable-email/)
+</Tip>
+
+## Activating Email Confirmation
+
+1. Log into your [Comfyform dashboard](https://app.comfyform.com/sign/in).
+2. Proceed to the [Forms](https://app.comfyform.com/forms) section and select the form you want to secure with Email Confirmation.
+3. Click on the **Security** tab.
+4. Find the **Email Confirmation** section.
+5. If not previously activated, click "Activate." To modify existing settings, click "Modify."
+6. Check the box to enable Email Confirmation protection.
+7. Configure the necessary settings:
+   - **Email Field Name**: Specify the `name` of the input field in the form where users enter their email address. We'll use the email value to send the confirmation email to.
+   - **Success URL**: Provide the URL where users will be redirected after clicking the confirmation link in their email. This can be a URL to a thank you page or another relevant page on your site. If not specified, we'll take the user to our [default thank you page](https://app.comfyform.com/submission/ok).
+8. Click the **Save changes** button to implement these configurations.
+
+## Email Confirmation Workflow
+
+The process of Email Confirmation involves several steps to certify entry legitimacy:
+
+- Once the form is submitted, Comfyform sends a confirmation email to the email address provided in the form's designated email field.
+- The user must click on the confirmation link contained within this email to validate their submission.
+- Upon clicking the confirmation link, the user is redirected to the Success URL specified during setup or to the URL included in the `_cf_sp_emailconfirmation_url_ok` hidden input field in the form HTML, if present.
+
+## Overriding the Success URL Programmatically
+
+Comfyform prioritizes the URL specified in the hidden input field for the Success URL over the one configured in the dashboard. Here's how you can add that field to your form:
+
+```html
+<input type="hidden" name="_cf_sp_emailconfirmation_url_ok" value="YOUR_SUCCESS_URL">
+```
+
+Replace `YOUR_SUCCESS_URL` with the URL where you want users to be redirected after confirming their email. Note that this URL will be publicly visible to anyone who checks your site's source code, if used on a public website.
+
+## Testing Email Confirmation
+
+Always test your configuration to ensure the Email Confirmation workflow functions smoothly:
+
+- Fill out the form using a valid email address and submit.
+- Check your inbox for the confirmation email and check its content for accuracy.
+- Click the confirmation link to verify redirection to the appropriate Success URL.
+
+Testing the setup helps you to confidently know that only confirmed submissions are recorded, improving your data's reliability.
+
+## Need Support with Email Confirmation?
+
+If you require further guidance or encounter challenges when setting up your Email Confirmation protection, our support team is ready to assist. Get in touch with us at [support@comfyform.com](mailto:support@comfyform.com), or engage with our friendly community for support on the [Comfyform Discord server](https://discord.gg/Fm7ac3am8S). We are here to support you in securing your forms effectively and efficiently.

@@ -1,0 +1,22 @@
+---
+title: 'Submission Errors'
+'og:description': "Efficiently handle form submission errors with Comfyform's guide on handling submission errors, ensuring a flawless integration of your web forms."
+---
+
+This page details all possible errors our Submission API might return when you submit a form with the `Accept: application/json` header via JavaScript or your backend system. These errors typically indicate an issue with the form submission implementation or input provided by the end-user. Each error currently responds with a status code 400 Bad Request, assisting you in pinpointing and resolving the problem efficiently.
+
+
+| Error Type | Error Message                          |
+|------------|----------------------------------------|
+| NOT_FOUND  | There is no form with the provided ID. |
+| UNPROCESSABLE  | We couldn't process your form data, please check your implementation. If you're not sure where the problem is, contact us at support@comfyform.com. We'll be happy to assist you! |
+| FILE_TOO_LARGE  | Your file &lt;FILENAME&gt; exceeds the maximum size 16MB. |
+| COULD_NOT_SAVE  | We couldn't save your file &lt;FILENAME&gt;. |
+| NO_CONTENT  | There is no content in the submission. |
+| REQUIRED_FIELD  | &lt;FIELD_NAME&gt; |
+| SECURITY_HONEYPOT  | Please do not fill in the field that is marked in the form and used to filter out robots.. |
+| SECURITY_TIMETRAP  | The timetrap security didn't pass. |
+| SECURITY_CAPTCHA  | Please, prove that you're a human being. We can't process your form without that. |
+| BLOCKED_LANGUAGE_DETECTED  | The language you've written the data in is blocked. |
+| BLOCKED_LOCATION_DETECTED  | The country you've submitted the form from is blocked. |
+| DISPOSABLE_EMAIL  | The email you provided appears to be a disposable email which we cannot accept. Please, use your real email address instead. |

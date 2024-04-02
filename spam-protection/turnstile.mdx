@@ -1,0 +1,55 @@
+---
+title: "Turnstile"
+'og:description': "Secure your forms effortlessly with Cloudflare Turnstile integration in Comfyform for invisible bot protection without CAPTCHA challenges."
+icon: "cloudflare"
+---
+
+Ensure your forms are safeguarded from bots without inconveniencing genuine users by integrating Turnstile, Cloudflare's **intelligent, invisible captcha solution**. Turnstile works **quietly in the background to detect bots**, eliminating the need for interactive captcha challenges. Setting up Turnstile with Comfyform is **simple and efficient**, offering robust security with a frictionless UX.
+
+Here's your guide to implementing Turnstile in your Comfyform web forms.
+
+## Step 1: Sign Up for Turnstile
+
+To get started with Turnstile, you need to sign up for the service and obtain your site-specific keys. If your website is already registered with Cloudflare Turnstile, your Turnstile keys will be available in your [Cloudflare dashboard](https://dash.cloudflare.com/sign-up?to=/:account/turnstile). In that case, you can [skip to the second step](#step-2-configure-turnstile-in-comfyform-dashboard). Otherwise:
+
+1. Visit the [Turnstile page in Cloudflare Dashboard](https://dash.cloudflare.com/sign-up?to=/:account/turnstile).
+2. Click "Add site" button.
+3. Provide the **Site name** (e.g. My Super Website) so you can find it later easily.
+4. Select or fill in the **Domain(s)** which you're going to use Turnstile protection on.
+5. Select the **Widget Mode** how the protection should work:
+    - **Managed**: Cloudflare will decide if an interactive challenge should be used.
+    - **Non-interactive**: Users will just see a widget with a loading bar.
+    - **Invisible**: Completely invisible challenge that does not require interaction.
+6. Click on the "Create" button.
+
+Cloudflare will provide you with two essential keys after finishing the setup:
+- **Site Key**: Public key implemented on your site's frontend.
+- **Secret Key**: Private key used for communication between the backend and the Turnstile service for validating requests from your site. Keep it secure and never reveal it publicly.
+
+## Step 2: Configure Turnstile in Comfyform Dashboard
+
+Once Turnstile is set up on Cloudflare, you need to configure it within your Comfyform settings.
+
+1. Log into your [Comfyform dashboard](https://app.comfyform.com/sign/in).
+2. Visit the [Forms](https://app.comfyform.com/forms) section and open the form you wish to secure.
+3. Click on the **Security** tab.
+4. Locate the **Turnstile** section and click "Activate" or "Modify", depending on the current status.
+5. Input your **Secret Key** appropriately.
+6. To save and enable Turnstile protection, click the **Save changes**.
+
+## Step 3: Implement Turnstile on Your Site
+
+To ensure the Turnstile security is operational, integrate the Turnstile script into your website's form pages according to [Cloudflare's documentation](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/) and we'll handle the validation process.
+
+## Step 4: Test Your Turnstile Integration
+
+With Turnstile now active, it's important to ensure everything functions as intended:
+
+- Test your forms to confirm that Turnstile is operational.
+- Verify that submissions are processed appropriately, with bot traffic being filtered out.
+
+These tests help ensure your security measures are non-intrusive to users while effectively guarding against automated threats.
+
+## Need Assistance with Turnstile?
+
+For support or if you encounter any challenges with integrating Turnstile into your Comfyform, please reach out. Contact our support team at [support@comfyform.com](mailto:support@comfyform.com), or join our supportive community on the [Comfyform Discord server](https://discord.gg/Fm7ac3am8S). We're here to ensure that you can maintain secure, user-friendly forms reliably and effortlessly.
