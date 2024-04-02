@@ -142,7 +142,7 @@
         {
             "group": "Sending Submissions",
             "pages": [
-                "submissions/introduction",
+                "submissions",
                 {
                     "group": "Submitting Data",
                     "pages": [
