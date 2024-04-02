@@ -142,7 +142,7 @@
         {
             "group": "Sending Submissions",
             "pages": [
-                "submissions",
+                "submissions/introduction",
                 {
                     "group": "Submitting Data",
                     "pages": [
@@ -173,5 +173,51 @@
         "twitter": "https://www.twitter.com/comfyform_com",
         "linkedin": "https://www.linkedin.com/company/comfyform",
         "discord": "https://discord.gg/Fm7ac3am8S"
-    }
+    },
+    "redirects": [{
+        "source": "/installation/creating-form",
+        "destination": "/creating-form"
+    }, {
+        "source": "/installation/testing-form-using-curl",
+        "destination": "/submissions/testing-form-using-curl"
+    }, {
+        "source": "/installation/deploying-form",
+        "destination": "/submissions/introduction"
+    }, {
+        "source": "/installation/deploying-form/html",
+        "destination": "/submissions/introduction"
+    }, {
+        "source": "/installation/deploying-form/js",
+        "destination": "/submissions/introduction"
+    }, {
+        "source": "/installation/deploying-form/html/basic",
+        "destination": "/submissions/basic-html-form"
+    }, {
+        "source": "/installation/deploying-form/html/file-upload",
+        "destination": "/submissions/html-form-with-file-upload"
+    }, {
+        "source": "/installation/deploying-form/js/formdata",
+        "destination": "/submissions/javascript-formdata"
+    }, {
+        "source": "/installation/deploying-form/js/json",
+        "destination": "/submissions/json"
+    }, {
+        "source": "/installation/deploying-form/backend-integration",
+        "destination": "/submissions/backend-integration"
+    }, {
+        "source": "/installation/submission-errors",
+        "destination": "/submissions/errors"
+    }, {
+        "source": "/form",
+        "destination": "/quickstart"
+    }, {
+        "source": "/form/spam-filtering",
+        "destination": "/spam-protection"
+    }, {
+        "source": "/form/spam-filtering/:slug*",
+        "destination": "/spam-protection/:slug*"
+    }, {
+        "source": "/form/:slug*",
+        "destination": "/:slug*"
+    }]
 }
