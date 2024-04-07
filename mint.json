@@ -225,5 +225,10 @@
     }, {
         "source": "/form/:slug*",
         "destination": "/:slug*"
-    }]
+    }],
+    "analytics": {
+        "ga4": {
+            "measurementId": "G-EYQT5PJ04S"
+        }
+    }
 }
